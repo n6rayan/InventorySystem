@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/healthcheck', (req, res) => {
     res.send({
         "status": 200,
         "message": "OK!"

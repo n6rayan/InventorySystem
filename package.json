@@ -1,0 +1,19 @@
+{
+  "name": "inventorysystem",
+  "version": "1.0.0",
+  "description": "An inventory system which could be used by any retailer/hospitality business. Helps to perform actions such as updating stock levels and adding or removing new products etc.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/nourrayantechnology/inventory-system.git"
+  },
+  "author": "Nour Rayan Technology",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/nourrayantechnology/inventory-system#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

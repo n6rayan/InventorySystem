@@ -4,6 +4,7 @@
   "description": "An inventory system which could be used by any retailer/hospitality business. Helps to perform actions such as updating stock levels and adding or removing new products etc.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha --exit"
   },
   "repository": {

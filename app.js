@@ -9,10 +9,10 @@ app.get('/healthcheck', (req, res) => {
     });
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
-    console.log("Server started on port " + port + ".\nGo to http://<host>:" + port + "/healthcheck to see the health check.");
+    console.log(`Server started on port: ${port}.\nGo to http://localhost:${port}/healthcheck to see the health check.`);
 });
 
 module.exports = app;

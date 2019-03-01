@@ -1,4 +1,5 @@
 const express = require('express');
+const slackClient = require('./SlackClient');
 
 const app = express();
 
@@ -7,6 +8,8 @@ app.get('/healthcheck', (req, res) => {
         "status": 200,
         "message": "OK!"
     });
+
+    slackClient.sendToSlack('healthcheck');
 });
 
 const port = process.env.PORT || 3001;

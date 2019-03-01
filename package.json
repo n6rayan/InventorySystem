@@ -18,7 +18,9 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "express": "^4.16.4",
+    "log4js": "^4.0.2",
     "mocha": "^5.2.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "simple-node-logger": "^18.12.22"
   }
 }

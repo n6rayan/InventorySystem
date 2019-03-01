@@ -1,4 +1,5 @@
 const request = require('request');
+const logger = require('./Logger');
 
 const makeRequest = (method, url, headers, body, callback) => {
     if (!method) return callback (Error ('Method is missing!') );
@@ -16,13 +17,13 @@ const makeRequest = (method, url, headers, body, callback) => {
 
     try {
         request(options, (err, res, body) => {
-            if (err) console.log(err);
+            if (err) throw(err);
 
             callback(body);
         });
     }
     catch (err) {
-        console.log(err); // Eventually log this error to a file.
+        logger.logError(err);
     }
 }
 

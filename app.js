@@ -1,5 +1,6 @@
 const express = require('express');
 const slackClient = require('./SlackClient');
+const logger = require('./Logger');
 
 const app = express();
 
@@ -10,12 +11,16 @@ app.get('/healthcheck', (req, res) => {
     });
 
     slackClient.sendToSlack('healthcheck');
+    logger.logInfo('/healthcheck hit!');
 });
 
 const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
-    console.log(`Server started on port: ${port}.\nGo to http://localhost:${port}/healthcheck to see the health check.`);
+    let info = `Server started on port: ${port}.\nGo to http://localhost:${port}/healthcheck to see the health check.`;
+
+    console.log(info);
+    logger.logInfo(info);
 });
 
 module.exports = app;

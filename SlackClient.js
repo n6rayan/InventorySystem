@@ -1,4 +1,5 @@
 const apiClient = require('./APIClient');
+const logger = require('./Logger');
 
 const url = 'https://hooks.slack.com/services/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';
 const headers = {
@@ -19,11 +20,11 @@ const sendToSlack = (endpoint) => {
 
     try {
         apiClient.makeRequest('POST', url, headers, body, response => {
-            console.log(response);
+            logger.logInfo(`Slack Replied: "${response}"`);
         });
     }
     catch (err) {
-        console.log(err);
+        logger.logInfo(err);
     };
 };
 

@@ -10,8 +10,6 @@ let body = {
             color: "#36a64f",
             pretext: "PSSS! AN ENDPOINT WAS HIT!",
             author_name: "Inventory System",
-            author_link: "http://flickr.com/bobby/",
-            author_icon: "http://flickr.com/icons/bobby.jpg",
             ts: epoch
     }]
 };

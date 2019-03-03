@@ -9,16 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/nourrayantechnology/inventory-system.git"
+    "url": "git+ssh://git@bitbucket.org:N6Rayan/inventory-system.git"
   },
   "author": "Nour Rayan Technology",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/nourrayantechnology/inventory-system#readme",
+  "homepage": "https://bitbucket.org/N6Rayan/inventory-system/src/master/",
   "dependencies": {
     "chai": "^4.2.0",
-    "chai-http": "^4.2.0",
+    "chai-fs": "^2.0.0",
+    "chai-http": "^4.2.1",
+    "config": "^3.0.1",
     "express": "^4.16.4",
+    "log4js": "^4.0.2",
     "mocha": "^5.2.0",
+    "mock-fs": "^4.8.0",
     "request": "^2.88.0"
   }
 }

@@ -1,0 +1,19 @@
+{
+    "log4js": {
+        "appenders": {
+            "invsys": {
+                "type": "file",
+                "filename": "inventory-system.log",
+                "encoding": "utf-8"
+            }
+        },
+        "categories": {
+            "default": {
+                "appenders": [
+                    "invsys"
+                ],
+                "level": "debug"
+            }
+        }
+    }
+}

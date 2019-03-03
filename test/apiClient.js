@@ -1,4 +1,5 @@
 const expect = require('chai').expect;
+
 const apiClient = require('../APIClient');
 
 const body = {

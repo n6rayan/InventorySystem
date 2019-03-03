@@ -1,6 +1,6 @@
 const express = require('express');
-const slackClient = require('./SlackClient');
-const logger = require('./Logger');
+const slackClient = require('./src/SlackClient');
+const logger = require('./src/Logger');
 
 const app = express();
 

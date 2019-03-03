@@ -1,21 +1,8 @@
+var config = require('config');
 const log4js = require('log4js');
-log4js.configure({
-    appenders: {
-        invsys: {
-            type: "file",
-            filename: "inventory-system.log",
-            encoding: "utf-8"
-        }
-    },
-    categories: {
-        default: {
-            appenders: [
-                "invsys"
-            ],
-            level: "debug"
-        }
-    }
-});
+
+const logConf = config.get('log4js');
+log4js.configure(logConf);
 
 const logger = log4js.getLogger('invsys');
 

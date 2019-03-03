@@ -1,7 +1,7 @@
 const request = require('request');
 const logger = require('./Logger');
 
-const makeRequest = (method, url, headers, body, callback) => {
+const makeRequest = (method: string, url: string, headers: object, body: object, callback: Function) => {
     if (!method) return callback (Error ('Method is missing!') );
     if (!url) return callback (Error ('URL is missing!') );
 

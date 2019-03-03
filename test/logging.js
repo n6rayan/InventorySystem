@@ -6,7 +6,7 @@ chai.use(chaiFs);
 chai.use(chaiHttp);
 
 const app = require('../app');
-const logger = require('../Logger');
+const logger = require('../src/Logger');
 
 describe('Logging Test', () => {
     it('it should write to inventory-system.log', (done) => {

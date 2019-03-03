@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const apiClient = require('../APIClient');
+const apiClient = require('../src/APIClient');
 
 const body = {
     name: "Nour Rayan",

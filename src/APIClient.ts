@@ -1,10 +1,23 @@
-const request = require('request');
-const logger = require('./Logger');
+import * as request from 'request';
+import * as logger from './Logger';
 
-const makeRequest = (method: string, url: string, headers: object, body: object, callback: Function) => {
-    if (!method) return callback (Error ('Method is missing!') );
-    if (!url) return callback (Error ('URL is missing!') );
+export class APIClient {
+    baseUrl: string;
 
+    constructor(url: string) {
+        this.baseUrl = url;
+    }
+
+    public get(endpoint: string): void {
+        request.get(this.baseUrl + endpoint);
+    }
+
+    public makeRequest(method: string, headers: object, body: object, callback: void): void {
+        method = method.toUpperCase();
+    };
+}
+
+const makeRequest = (method: string, url: string, headers: object, body: object, callback: void) => {
     method = method.toUpperCase(); // Ensure request method is upper-case.
 
     const options = {
@@ -23,7 +36,7 @@ const makeRequest = (method: string, url: string, headers: object, body: object,
         });
     }
     catch (err) {
-        logger.logError(err);
+        logger.error(err);
     }
 }
 

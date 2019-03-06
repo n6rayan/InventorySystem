@@ -4,7 +4,7 @@
   "description": "An inventory system which could be used by any retailer/hospitality business. Helps to perform actions such as updating stock levels and adding or removing new products etc.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node built/app.js",
     "test": "mocha --exit"
   },
   "repository": {
@@ -16,6 +16,7 @@
   "homepage": "https://bitbucket.org/N6Rayan/inventory-system/src/master/",
   "dependencies": {
     "@types/config": "0.0.34",
+    "@types/express": "^4.16.1",
     "@types/request": "^2.48.1",
     "chai": "^4.2.0",
     "chai-fs": "^2.0.0",

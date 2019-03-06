@@ -1,43 +1,33 @@
 import * as request from 'request';
-import * as logger from './Logger';
+import { Logger } from './Logger';
+
+let logger = new Logger();
+
+interface Options {
+    method: string;
+    url: string,
+    body: object,
+    headers: object,
+    json: boolean
+}
 
 export class APIClient {
-    baseUrl: string;
+    public makeRequest(options: Options, callback: any): void {
+        try {
+            request({
+                method: options.method,
+                url: options.url,
+                headers: options.headers,
+                body: options.body
+            },
+            (err, res, body) => {
+                if (err) throw err;
 
-    constructor(url: string) {
-        this.baseUrl = url;
-    }
-
-    public get(endpoint: string): void {
-        request.get(this.baseUrl + endpoint);
-    }
-
-    public makeRequest(method: string, headers: object, body: object, callback: void): void {
-        method = method.toUpperCase();
-    };
-}
-
-const makeRequest = (method: string, url: string, headers: object, body: object, callback: void) => {
-    method = method.toUpperCase(); // Ensure request method is upper-case.
-
-    const options = {
-        method: method,
-        url: url,
-        headers: headers,
-        body: body,
-        json: true
-    };
-
-    try {
-        request(options, (err, res, body) => {
-            if (err) throw(err);
-
-            callback(body);
-        });
-    }
-    catch (err) {
-        logger.error(err);
+                callback(body);
+            });
+        }
+        catch(err) {
+            logger.error(err);
+        }
     }
 }
-
-module.exports.makeRequest = makeRequest;

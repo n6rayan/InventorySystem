@@ -1,4 +1,5 @@
 import * as request from 'request';
+
 import { Logger } from './Logger';
 
 let logger = new Logger();
@@ -18,7 +19,8 @@ export class APIClient {
                 method: options.method,
                 url: options.url,
                 headers: options.headers,
-                body: options.body
+                body: options.body,
+                json: options.json
             },
             (err, res, body) => {
                 if (err) throw err;

@@ -1,3 +1,5 @@
+import * as config from 'config';
+
 import { APIClient } from './APIClient';
 import { Logger } from './Logger';
 
@@ -5,16 +7,16 @@ let apiClient = new APIClient();
 let logger = new Logger();
 
 export class SlackClient {
-    url: string;
+    private slackConfig: object;
 
-    constructor(webhook: string) {
-        this.url = webhook;
+    constructor() {
+        this.slackConfig = config.get('slack');
     }
 
     public sendToSlack(message: string): void {
         let options = {
             method: 'POST',
-            url: this.url,
+            url: this.slackConfig["webhookUrl"],
             body: {
                 attachments: [{
                     color: "#36a64f",

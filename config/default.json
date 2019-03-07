@@ -3,7 +3,7 @@
         "appenders": {
             "invsys": {
                 "type": "file",
-                "filename": "inventory-system.log",
+                "filename": "logs/inventory-system.log",
                 "encoding": "utf-8"
             }
         },
@@ -15,5 +15,8 @@
                 "level": "debug"
             }
         }
+    },
+    "slack": {
+        "webhookUrl": "https://hooks.slack.com/services/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"
     }
 }

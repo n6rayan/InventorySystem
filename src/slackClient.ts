@@ -16,12 +16,12 @@ export class SlackClient {
     public sendToSlack(message: string): void {
         let options = {
             method: 'POST',
-            url: this.slackConfig["webhookUrl"],
+            url: this.slackConfig['webhookUrl'],
             body: {
                 attachments: [{
-                    color: "#36a64f",
-                    pretext: "PSSS! AN ENDPOINT WAS HIT!",
-                    author_name: "Inventory System",
+                    color: '#36a64f',
+                    pretext: 'PSSS! AN ENDPOINT WAS HIT!',
+                    author_name: 'Inventory System',
                     text: message,
                     ts: Math.floor(+new Date() / 1000)
                 }]

@@ -3,8 +3,8 @@ import * as config from 'config';
 import { APIClient } from './apiClient';
 import { Logger } from './logger';
 
-let apiClient = new APIClient();
-let logger = new Logger();
+const apiClient = new APIClient();
+const logger = new Logger();
 
 export class SlackClient {
     private slackConfig: object;
@@ -14,7 +14,7 @@ export class SlackClient {
     }
 
     public sendToSlack(message: string): void {
-        let options = {
+        const options = {
             method: 'POST',
             url: this.slackConfig['webhookUrl'],
             body: {

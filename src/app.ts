@@ -1,7 +1,7 @@
 import * as express from 'express';
 
-import { SlackClient } from './SlackClient';
-import { Logger } from './Logger';
+import { SlackClient } from './slackClient';
+import { Logger } from './logger';
 
 const slackClient = new SlackClient();
 const logger = new Logger();

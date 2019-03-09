@@ -1,10 +1,9 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
+import * as chai from 'chai';
+import chaiHttp = require('chai-http');
+import app from '../src/app';
 
-const should = chai.should();
+chai.should();
 chai.use(chaiHttp);
-
-const app = require('../app');
 
 describe('/GET healthcheck', () => {
     it('it should GET back a health check response', (done) => {

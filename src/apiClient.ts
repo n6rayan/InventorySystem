@@ -1,15 +1,15 @@
 import * as request from 'request';
 
-import { Logger } from './Logger';
+import { Logger } from './logger';
 
 let logger = new Logger();
 
 interface Options {
     method: string;
     url: string,
-    body: object,
-    headers: object,
-    json: boolean
+    body?: object,
+    headers?: object,
+    json?: boolean
 }
 
 export class APIClient {

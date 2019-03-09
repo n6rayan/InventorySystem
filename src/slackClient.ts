@@ -1,7 +1,7 @@
 import * as config from 'config';
 
-import { APIClient } from './APIClient';
-import { Logger } from './Logger';
+import { APIClient } from './apiClient';
+import { Logger } from './logger';
 
 let apiClient = new APIClient();
 let logger = new Logger();

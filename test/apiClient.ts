@@ -4,7 +4,7 @@ import { APIClient } from '../src/apiClient';
 const apiClient = new APIClient();
 
 describe('Test API Client', () => {
-    it('it should get create a new user', (done) => {
+    it('should create a new user', (done) => {
         const options = {
             method: 'POST',
             url: 'https://reqres.in/api/users',
@@ -24,7 +24,7 @@ describe('Test API Client', () => {
         });
     });
 
-    it('it should get back a user', (done) => {
+    it('should fetch and return a user', (done) => {
         const options = {
             method: 'GET',
             url: 'https://reqres.in/api/users/2',

@@ -23,13 +23,16 @@ export class APIClient {
                 json: options.json
             },
             (err, res, body) => {
-                if (err) throw err;
+                if (err) throw new Error(err);
 
                 callback(body);
             });
         }
-        catch(err) {
-            logger.error(err);
+        catch (err) {
+            callback({
+                success: 0,
+                error: err
+            });
         }
     }
 }

@@ -14,6 +14,7 @@ app.get('/healthcheck', (req, res) => {
         "message": "OK!"
     });
 
+    // TODO: IS-13 Log More Information For API Calls
     slackClient.sendToSlack('healthcheck');
     logger.info('/healthcheck hit!');
 });

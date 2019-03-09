@@ -14,6 +14,7 @@ export class SlackClient {
     }
 
     public sendToSlack(message: string): void {
+        const timestamp = Math.floor(+new Date() / 1000);
         const options = {
             method: 'POST',
             url: this.slackConfig['webhookUrl'],
@@ -23,7 +24,7 @@ export class SlackClient {
                     pretext: 'PSSS! AN ENDPOINT WAS HIT!',
                     author_name: 'Inventory System',
                     text: message,
-                    ts: Math.floor(+new Date() / 1000)
+                    ts: timestamp
                 }]
             },
             headers: {
@@ -33,7 +34,11 @@ export class SlackClient {
         };
 
         apiClient.makeRequest(options, response => {
-            logger.info(response);
+            if (response.success === 0) {
+                logger.error(response.error);
+            }
+
+            logger.info(`Slack said: ${response}`);
         });
     }
 }

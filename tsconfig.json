@@ -3,6 +3,7 @@
         "outDir": "./build",
         "allowJs": true,
         "target": "es6",
+        "moduleResolution": "node",
         "types": ["node", "express", "mocha"]
     },
     "include": [

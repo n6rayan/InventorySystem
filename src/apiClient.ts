@@ -1,9 +1,5 @@
 import * as request from 'request';
 
-import { Logger } from './logger';
-
-let logger = new Logger();
-
 interface Options {
     method: string;
     url: string,
@@ -13,16 +9,10 @@ interface Options {
 }
 
 export class APIClient {
+    // TODO: IS-14: Update App To Use Promises
     public makeRequest(options: Options, callback: any): void {
         try {
-            request({
-                method: options.method,
-                url: options.url,
-                headers: options.headers,
-                body: options.body,
-                json: options.json
-            },
-            (err, res, body) => {
+            request(options, (err, res, body) => {
                 if (err) throw new Error(err);
 
                 callback(body);

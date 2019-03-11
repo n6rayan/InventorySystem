@@ -18,5 +18,8 @@
     },
     "slack": {
         "webhookUrl": "https://hooks.slack.com/services/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"
+    },
+    "mongoose": {
+        "connectionString": "mongodb://invsys:invsys@localhost/inventorySystem"
     }
 }

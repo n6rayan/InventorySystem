@@ -2,8 +2,6 @@ import * as config from 'config';
 import * as mongoose from 'mongoose';
 
 import * as item from './models/item'
-import { resolve } from 'dns';
-import { rejects } from 'assert';
 
 export class Database {
     constructor() {

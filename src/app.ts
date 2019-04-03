@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
 
 import { Database } from './database/database';
 import { Logger } from './logger';
@@ -10,6 +11,8 @@ const logger = new Logger();
 const slackClient = new SlackClient();
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.get('/healthcheck', (req, res) => {
     res.send({
@@ -24,11 +27,11 @@ app.get('/healthcheck', (req, res) => {
 
 app.route('/item').post((req, res) => {
     db.insertItem({
-        itemName: 'Milk',
-        description: 'A carton of milk.',
-        price: '0.99'
+        itemName: req.body.itemName,
+        description: req.body.description,
+        price: req.body.price
     }).then(item => {
-        res.send(item);
+        res.send({ success: 1, message: 'Item has been created', itemId: item["_id"]});
     }).catch(err => {
         res.send(err);
     });

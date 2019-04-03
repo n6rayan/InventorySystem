@@ -8,15 +8,17 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json /usr/src/app/
 
+# Install dependencies
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
 
 # Bundle app source
 COPY . /usr/src/app
 
 # Expose port 3001 to listen on
 EXPOSE 3001
+
+# Use docker config file
+ENV NODE_ENV=docker
 
 # Run tests
 RUN npm test

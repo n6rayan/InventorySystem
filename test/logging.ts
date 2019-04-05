@@ -10,7 +10,7 @@ use(chaiHttp);
 describe('Logging Test', () => {
     it('it should check contents of inventory-system.log', (done) => {
         request(app).get('/healthcheck').end((err, res) => {
-            assert.fileContentMatch('./logs/inventory-system.log', /Server started on/);
+            assert.fileContentMatch('./logs/inventory-system.log', /\/healthcheck hit!/);
             done();
         });
     });

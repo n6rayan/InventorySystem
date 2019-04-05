@@ -2,31 +2,14 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 
 import { Database } from './database/database';
-import { Logger } from './logger';
-import { SlackClient } from './slackClient';
-import Item from './database/models/item';
+import * as healthcheck from './routes/healthcheck';
 
 const db = new Database();
-const logger = new Logger();
-const slackClient = new SlackClient();
 
 const app = express();
 
 app.use(bodyParser.json());
-
-app.get('/healthcheck', (req, res) => {
-    const date = new Date();
-
-    res.send({
-        'status': 200,
-        'message': 'OK!',
-        'now': date.toLocaleString()
-    });
-
-    // TODO: IS-13 Log More Information For API Calls
-    slackClient.sendToSlack('healthcheck');
-    logger.info('/healthcheck hit!');
-});
+app.use(healthcheck.router);
 
 app.route('/item').post((req, res) => {
     db.insertItem({
@@ -54,7 +37,6 @@ app.listen(port, () => {
     let info = `Server started on port: ${port}.\nGo to http://localhost:${port}/healthcheck to see the health check.`;
 
     console.log(info);
-    logger.info(info);
 });
 
 export default app;

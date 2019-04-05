@@ -7,6 +7,7 @@ export class Database {
     constructor() {
         const mongooseConfig = config.get('mongoose');
 
+        mongoose.set('useNewUrlParser', true);
         mongoose.connect(mongooseConfig['connectionString']);
     }
 

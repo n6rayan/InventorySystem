@@ -15,9 +15,12 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/healthcheck', (req, res) => {
+    const date = new Date();
+
     res.send({
-        "status": 200,
-        "message": "OK!"
+        'status': 200,
+        'message': 'OK!',
+        'now': date.toLocaleString()
     });
 
     // TODO: IS-13 Log More Information For API Calls

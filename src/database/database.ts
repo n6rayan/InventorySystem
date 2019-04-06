@@ -51,4 +51,24 @@ export class Database {
             });
         });
     }
+
+    public updateUser(id: string, userInfo: object) {
+        return new Promise((resolve, reject) => {
+            User.findByIdAndUpdate(id, userInfo).then(user => {
+                resolve(user)
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
+
+    public deleteUser(id: string) {
+        return new Promise((resolve, reject) => {
+            User.findByIdAndDelete(id).then(user => {
+                resolve(user)
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
 }

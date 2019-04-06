@@ -1,7 +1,7 @@
 import * as config from 'config';
 import * as mongoose from 'mongoose';
 
-import * as item from './models/item'
+import { Item } from './models/item'
 
 export class Database {
     constructor() {
@@ -11,9 +11,9 @@ export class Database {
         mongoose.connect(mongooseConfig['connectionString']);
     }
 
-    public getItem(id: string) {
+    public fetchItem(id: string) {
         return new Promise((resolve, reject) => {
-            item.default.findById(id).then(item => {
+            Item.findById(id).then(item => {
                 resolve(item);
             }).catch(err => {
                 reject(err);
@@ -21,9 +21,9 @@ export class Database {
         });
     }
 
-    public insertItem(itemInfo: object) {
+    public createItem(itemInfo: object) {
         return new Promise((resolve, reject) => {
-            item.default.create(itemInfo).then(item => {
+            Item.create(itemInfo).then(item => {
                 resolve(item)
             }).catch(err => {
                 reject(err);

@@ -1,7 +1,8 @@
 import * as config from 'config';
 import * as mongoose from 'mongoose';
 
-import { Item } from './models/item'
+import { Item } from './models/item';
+import { User } from './models/user';
 
 export class Database {
     constructor() {
@@ -25,6 +26,26 @@ export class Database {
         return new Promise((resolve, reject) => {
             Item.create(itemInfo).then(item => {
                 resolve(item)
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
+
+    public fetchUser(id: string) {
+        return new Promise((resolve, reject) => {
+            User.findById(id).then(user => {
+                resolve(user)
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
+
+    public createUser(userInfo: object) {
+        return new Promise((resolve, reject) => {
+            User.create(userInfo).then(user => {
+                resolve(user)
             }).catch(err => {
                 reject(err);
             });

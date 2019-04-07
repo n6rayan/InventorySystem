@@ -15,5 +15,5 @@ const UserSchema = new mongoose.Schema({
     fullName: { type: String, required: true }
 });
 
-const User = mongoose.model<User>('Item', UserSchema);
+const User = mongoose.model<User>('User', UserSchema);
 export { User };

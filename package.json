@@ -39,6 +39,7 @@
     "typescript": "^3.3.3333"
   },
   "devDependencies": {
-    "@types/mongoose": "^4.7.43"
+    "@types/mongoose": "^4.7.45",
+    "mongodb-memory-server": "^4.2.1"
   }
 }

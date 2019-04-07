@@ -7,9 +7,12 @@ import { User } from './models/user';
 export class Database {
     constructor() {
         const mongooseConfig = config.get('mongoose');
+        this._connect(mongooseConfig['connectionString']);
+    }
 
+    _connect(connection: string) {
         mongoose.set('useNewUrlParser', true);
-        mongoose.connect(mongooseConfig['connectionString']);
+        mongoose.connect(connection);
     }
 
     public fetchItem(id: string) {

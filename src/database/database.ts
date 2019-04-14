@@ -12,6 +12,7 @@ export class Database {
 
     _connect(connection: string) {
         mongoose.set('useNewUrlParser', true);
+        mongoose.set('useFindAndModify', false);
         mongoose.connect(connection);
     }
 
@@ -57,7 +58,7 @@ export class Database {
 
     public updateUser(id: string, userInfo: object) {
         return new Promise((resolve, reject) => {
-            User.findByIdAndUpdate(id, userInfo).then(user => {
+            User.findOneAndUpdate({_id: id}, userInfo, {new: true}).then(user => {
                 resolve(user)
             }).catch(err => {
                 reject(err);
@@ -67,7 +68,7 @@ export class Database {
 
     public deleteUser(id: string) {
         return new Promise((resolve, reject) => {
-            User.findByIdAndDelete(id).then(user => {
+            User.findOneAndDelete({_id: id}).then(user => {
                 resolve(user)
             }).catch(err => {
                 reject(err);

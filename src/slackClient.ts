@@ -18,7 +18,7 @@ export class SlackClient {
         const options = {
             method: 'POST',
             url: this.slackConfig['webhookUrl'],
-            body: {
+            data: {
                 attachments: [{
                     color: '#36a64f',
                     pretext: 'PSSS! AN ENDPOINT WAS HIT!',
@@ -29,16 +29,11 @@ export class SlackClient {
             },
             headers: {
                 'Content-Type': 'application/json'
-            },
-            json: true
+            }
         };
 
-        apiClient.makeRequest(options, response => {
-            if (response.success === 0) {
-                logger.error(response.error);
-            }
-
-            logger.info(`Slack said: ${response}`);
-        });
+        apiClient.makeRequest(options)
+        .then(response => logger.info(`Slack said ${response}`))
+        .catch(err => logger.error(err));
     }
 }

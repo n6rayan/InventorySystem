@@ -1,17 +1,13 @@
-import * as chai from 'chai';
-import chaiHttp = require('chai-http');
+import { expect, request } from 'chai';
 import app from '../../src/app';
 
-chai.should();
-chai.use(chaiHttp);
-
 describe('Check HealthCheck Route', () => {
-    it('it should GET back a health check response', (done) => {
-        chai.request(app).get('/healthcheck').end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            res.body.message.should.equal('OK!');
-            done();
-        });
+
+    it('it should GET back a health check response', async () => {
+        const res = await request(app).get('/healthcheck');
+
+        expect(res.status).to.equal(200);
+        expect(res.body).to.be('object');
+        expect(res.body.message).to.equal('OK!');
     });
 });

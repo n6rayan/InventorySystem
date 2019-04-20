@@ -5,7 +5,7 @@ import app from '../../src/app';
 chai.should();
 chai.use(chaiHttp);
 
-describe('/GET healthcheck', () => {
+describe('Check HealthCheck Route', () => {
     it('it should GET back a health check response', (done) => {
         chai.request(app).get('/healthcheck').end((err, res) => {
             res.should.have.status(200);

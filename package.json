@@ -32,9 +32,9 @@
     "log4js": "^4.1.0",
     "mocha": "^5.2.0",
     "mock-fs": "^4.8.0",
-    "mongoose": "^5.4.18",
-    "nodemon": "^1.18.10",
-    "ts-node": "^8.0.3",
+    "mongoose": "^5.5.2",
+    "nodemon": "^1.18.11",
+    "ts-node": "^8.1.0",
     "typescript": "^3.4.3"
   },
   "devDependencies": {

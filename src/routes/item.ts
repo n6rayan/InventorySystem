@@ -61,4 +61,21 @@ router.put('/item/:itemId', (req, res) => {
     slackClient.sendToSlack('/item was hit');
 });
 
+router.delete('/item/:itemId', (req, res) => {
+
+    db.deleteItem(req.params.itemId)
+    .then(item => {
+        res.send({
+            success: 1,
+            message: 'Item has been deleted!'
+        })
+    })
+    .catch(err => {
+        res.send({ success: 0, message: err.message })
+        logger.error(err.message);
+    });
+
+    slackClient.sendToSlack('/item was hit');
+});
+
 export { router };

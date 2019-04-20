@@ -34,7 +34,7 @@ export class Database {
 
     public updateItem(id: string, itemInfo: object) {
         return new Promise((resolve, reject) => {
-            Item.findByIdAndUpdate(id, itemInfo)
+            Item.findOneAndUpdate({ _id: id }, itemInfo, { new: true })
             .then(item => resolve(item))
             .catch(err => reject(err));
         });

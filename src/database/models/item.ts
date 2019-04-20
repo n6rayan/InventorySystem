@@ -14,4 +14,4 @@ const ItemSchema = new mongoose.Schema({
 });
 
 const Item = mongoose.model<Item>('Item', ItemSchema);
-export default Item;
+export { Item };

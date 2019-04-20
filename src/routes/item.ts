@@ -10,7 +10,11 @@ const logger = new Logger();
 
 router.post('/item', (req, res) => {
 
-    db.insertItem(req.body)
+    db.createItem({
+        itemName: req.body.itemName,
+        description: req.body.description,
+        price: req.body.price
+    })
     .then(item => {
         res.send({
             success: 1,
@@ -28,7 +32,7 @@ router.post('/item', (req, res) => {
 
 router.get('/item/:itemId', (req, res) => {
 
-    db.getItem(req.params.itemId)
+    db.fetchItem(req.params.itemId)
     .then(item => {
         res.send(item)
     })

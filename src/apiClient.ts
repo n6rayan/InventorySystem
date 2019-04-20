@@ -1,28 +1,18 @@
-import * as request from 'request';
+import axios from 'axios';
 
 interface Options {
     method: string;
     url: string,
-    body?: object,
-    headers?: object,
-    json?: boolean
+    data?: object,
+    headers?: object
 }
 
 export class APIClient {
-    // TODO: IS-14: Update App To Use Promises
-    public makeRequest(options: Options, callback: any): void {
-        try {
-            request(options, (err, res, body) => {
-                if (err) throw new Error(err);
-
-                callback(body);
-            });
-        }
-        catch (err) {
-            callback({
-                success: 0,
-                error: err
-            });
-        }
+    public makeRequest(options: Options) {
+        return new Promise((resolve, reject) => {
+            axios.request(options)
+            .then((response) => resolve(response.data))
+            .catch((err) => reject(err));
+        });
     }
 }

@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org:N6Rayan/inventory-system.git"
+    "url": "git@github.com:n6rayan/InventorySystem.git"
   },
   "author": "Nour Rayan Technology",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/N6Rayan/inventory-system/src/master/",
+  "homepage": "https://github.com/n6rayan/InventorySystem",
   "dependencies": {
     "@types/config": "0.0.34",
     "@types/express": "^4.16.1",
